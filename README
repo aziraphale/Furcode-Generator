@@ -1,0 +1,15 @@
+Furry Code Generator
+=======================================
+
+This is a Web-based generator for Furry Codes (like the Geek Code, but for furries). See the Web links at the end of this file for more information.
+
+This script is essentially pure HTML (furcode.html) - the PHP script (furcode.php) is used solely to cut down on some of the repetition. The output of the PHP script has been saved to the HTML file. The simple HTML version is fully functional without any server-side code; everything runs client-side in JavaScript with jQuery and jQuery UI.
+
+Unfortunately, due to the heavy use of jQuery UI that this script makes, it can be rather slow to render: Chrome 18 clocks it as taking about 750 ms just to render the DOM itself (i.e. after it's finished downloading all of the auxiliary files) - and that's on a 2.4 GHz Core2Quad Q6600 processor! Chrome 18 on a 2.2 GHz Turion X2 takes 1750 ms. Firefox 10 takes a similar amount of time, and my poor little 1 GHz Android phone takes in the region of 23 seconds to render the page. Almost all of this rendering time is a result of the call to the jQuery UI button() method, which requires a huge amount of DOM manipulation over a large number of elements. I have implemented a delaying technique to render the buttons in batches, which at least allows the browser to be somewhat responsive while the buttons are being displayed, but this is the price we pay for using jQuery UI's pretty features.
+
+
+Related Web links
+-------------------
+ - http://en.wikifur.com/wiki/Furry_code The WikiFur article on the Furry Code.
+ - http://captainpackrat.com/furry/furcode.htm The original Furry Code documentation.
+ - http://www.geekcode.com/ The original Geek Code on which the Furry Code was based.
